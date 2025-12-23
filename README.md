@@ -33,6 +33,8 @@ Assess & Align ensures that research aligns with principles of equity, collabora
 - NoCoDB instance
 - Supabase account
 - Deepseek API access
+- Python 3.10+
+- Playwright browsers installed (for the price watcher utility)
 
 ### Installation
 
@@ -73,6 +75,41 @@ npm start
 ```
 
 5. Open your browser and navigate to `http://localhost:3000`
+
+## Price watcher (Python + Playwright)
+
+This repo now includes a standalone, cron-friendly Python script for watching UK retailer product prices (Currys, AO, Appliances Direct, Argos, etc.). It records every check to SQLite and alerts when prices cross your target.
+
+### Install the watcher
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+
+pip install playwright python-dotenv
+playwright install --with-deps
+```
+
+### Configure watchlist and alerts
+
+1. Copy `watchlist.example.json` to `watchlist.json` and update the entries with your product URLs, target prices, and preferred price selectors.
+2. (Optional) Copy `.env.example` to `.env` and fill in SMTP settings for email alerts. If you skip this, alerts will print to the console when a price target is crossed.
+
+### Run checks
+
+```bash
+python price_watch.py --watchlist watchlist.json --db prices.sqlite
+```
+
+Add `--headed` to debug tricky pages in a visible browser window. The script automatically tries three strategies in order: your CSS selector (most reliable), JSON-LD offers price, and a regex fallback. Failed checks can capture screenshots into `screenshots/`.
+
+### Cron example
+
+Run hourly between 7am–11pm UK time:
+
+```cron
+0 7-23 * * * /path/to/.venv/bin/python /path/to/price_watch.py --watchlist /path/to/watchlist.json --db /path/to/prices.sqlite >> /path/to/price_watch.log 2>&1
+```
 
 ## Project Structure
 

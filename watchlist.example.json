@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Washer Dryer Option A",
+    "url": "https://www.retailer.co.uk/product-page",
+    "target_price": 299.0,
+    "price_selector": "[data-testid='product-price']",
+    "currency": "GBP"
+  },
+  {
+    "name": "Washer Dryer Option B",
+    "url": "https://www.retailer.co.uk/another-product",
+    "target_price": 299.0,
+    "price_selector": ".price .value",
+    "currency": "GBP"
+  }
+]

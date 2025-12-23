@@ -48,3 +48,12 @@ pids
 # NoCoDB specific
 .nocodb/
 data/
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.sqlite
+*.db
+screenshots/
