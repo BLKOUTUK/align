@@ -15,6 +15,7 @@ jspm_packages/
 dist/
 build/
 out/
+.next/
 
 # Logs
 logs

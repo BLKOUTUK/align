@@ -1,13 +1,3 @@
 [build]
   command = "npm run build"
-  publish = ".next"
-
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
-
-# These redirects are not needed when using the Next.js Runtime
-# but we'll keep them as a fallback
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+  publish = "out"
