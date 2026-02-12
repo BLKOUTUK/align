@@ -1,7 +1,9 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 export default function Layout({ children, title = 'Assess & Align' }) {
+  const { basePath } = useRouter();
   return (
     <>
       <Head>
@@ -21,9 +23,11 @@ export default function Layout({ children, title = 'Assess & Align' }) {
         <header className="border-b border-[#1B1B3A]/10">
           <div className="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
             <Link href="/" className="flex items-center gap-3 no-underline">
-              <div className="w-10 h-10 rounded-full bg-[#1B1B3A] flex items-center justify-center">
-                <span className="text-[#E8A838] font-bold text-sm font-display">A&A</span>
-              </div>
+              <img
+                src={`${basePath}/bmhm-logo.avif`}
+                alt="Black Mental Health Manifesto"
+                className="h-10 w-auto"
+              />
               <span className="font-display text-xl text-[#1B1B3A]">
                 Assess & Align
               </span>
@@ -43,6 +47,11 @@ export default function Layout({ children, title = 'Assess & Align' }) {
 
         <footer className="border-t border-[#1B1B3A]/10 py-8">
           <div className="max-w-4xl mx-auto px-4 text-center">
+            <img
+              src={`${basePath}/bmhm-logo.avif`}
+              alt="Black Mental Health Manifesto"
+              className="h-8 w-auto mx-auto mb-3"
+            />
             <p className="text-sm text-[#1B1B3A]/50">
               Built by the{' '}
               <a
