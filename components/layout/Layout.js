@@ -51,7 +51,7 @@ export default function Layout({ children, title = 'Assess & Align' }) {
                 rel="noopener noreferrer"
                 className="text-[#E8A838] hover:underline"
               >
-                Black Men&apos;s Health &amp; Wellbeing Alliance
+                Black Mental Health &amp; Wellbeing Alliance
               </a>
             </p>
             <p className="text-xs text-[#1B1B3A]/30 mt-2">
