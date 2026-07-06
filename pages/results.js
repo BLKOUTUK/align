@@ -30,7 +30,7 @@ export default function Results() {
     return (
       <Layout title="Results">
         <div className="max-w-3xl mx-auto px-4 py-16 text-center">
-          <p className="text-[#1B1B3A]/50">Loading results...</p>
+          <p className="text-[#2B211C]/50">Loading results...</p>
         </div>
       </Layout>
     );
@@ -40,10 +40,10 @@ export default function Results() {
     <Layout title="Results">
       <div className="max-w-3xl mx-auto px-4 py-8">
         <div className="mb-8">
-          <h1 className="font-display text-3xl text-[#1B1B3A] mb-2">
+          <h1 className="font-display text-3xl text-[#2B211C] mb-2">
             Your Assessment
           </h1>
-          <p className="text-[#1B1B3A]/60">
+          <p className="text-[#2B211C]/60">
             Here&apos;s how the research proposal scored across the five
             dimensions of equitable partnership.
           </p>
@@ -70,20 +70,20 @@ export default function Results() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center print:hidden">
           <Link
             href="/assess"
-            className="px-6 py-3 rounded-xl font-medium text-center border-2 border-[#1B1B3A]/20 text-[#1B1B3A] hover:border-[#1B1B3A]/40 transition-colors no-underline"
+            className="px-6 py-3 rounded-xl font-medium text-center border-2 border-[#2B211C]/20 text-[#2B211C] hover:border-[#2B211C]/40 transition-colors no-underline"
           >
             Edit Answers
           </Link>
           <button
             type="button"
             onClick={() => window.print()}
-            className="px-6 py-3 rounded-xl font-medium text-center bg-[#1B1B3A] text-white hover:bg-[#2a2a5a] transition-colors cursor-pointer"
+            className="px-6 py-3 rounded-xl font-medium text-center bg-[#2B211C] text-white hover:bg-[#3D2E26] transition-colors cursor-pointer"
           >
             Print / Save PDF
           </button>
           <Link
             href="/"
-            className="px-6 py-3 rounded-xl font-medium text-center text-[#1B1B3A]/50 hover:text-[#1B1B3A] transition-colors no-underline"
+            className="px-6 py-3 rounded-xl font-medium text-center text-[#2B211C]/50 hover:text-[#2B211C] transition-colors no-underline"
           >
             Back to Home
           </Link>

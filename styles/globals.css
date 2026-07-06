@@ -2,29 +2,67 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ═══════════════════════════════════════════
+   Assess & Align — BMHWA Round 2 design system
+   Mirrors bmhwa-manifesto/docs/round-2/03_design-system.md
+   ═══════════════════════════════════════════ */
+
+/* BC Empire Windrush — display face. Webfont licence (10k pageviews, shared with
+   the manifesto site). All-caps display — big moments only, never body, never small. */
+@font-face {
+  font-family: 'bc_empire_windrushregular';
+  src: url('/align/fonts/bcempirewindrush-regular-4-webfont.woff2') format('woff2'),
+       url('/align/fonts/bcempirewindrush-regular-4-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --primary: #2B211C;   /* deep brown-black — dark surfaces, display headings */
+  --accent: #D89A2D;    /* warm ochre — Pan-African warmth (dark surfaces / fills only) */
+  --urgent: #C8341F;    /* demand red — emphasis on light, calls to action */
+  --text: #1A1A1A;      /* near-black body */
+  --light-bg: #F6F2EA;  /* warm off-white — page background (never clinical white) */
+  --card-bg: #FFFFFF;
+  --muted: #6F635A;     /* warm grey-brown secondary text */
+  --border: rgba(43, 33, 28, 0.12);
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
   font-family: 'Work Sans', system-ui, -apple-system, sans-serif;
-  background-color: #fbf8f3;
-  color: #1b1b3a;
+  background-color: var(--light-bg);
+  color: var(--text);
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+a { color: inherit; text-decoration: none; }
+* { box-sizing: border-box; }
 
-* {
-  box-sizing: border-box;
-}
-
-/* Custom font classes */
+/* Display / body font helpers */
 .font-display {
-  font-family: 'DM Serif Display', Georgia, serif;
+  font-family: 'bc_empire_windrushregular', 'Arial Black', Impact, sans-serif;
+  letter-spacing: 0.01em;
+}
+.font-body { font-family: 'Work Sans', system-ui, sans-serif; }
+.font-data { font-family: 'Space Grotesk', 'SF Mono', monospace; }
+
+/* Demand-red eyebrow (gold fails AA as small text on light — this is the light-bg label) */
+.aa-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--urgent);
 }
 
-.font-body {
-  font-family: 'Work Sans', system-ui, sans-serif;
+/* Signature dark hero band — mirrors the manifesto's .page-hero.
+   Ochre accents are safe here because the surface is dark. */
+.aa-hero {
+  background: var(--primary);
+  color: #FFFFFF;
 }
+.aa-hero .aa-eyebrow { color: var(--accent); }
+.aa-hero-accent { color: var(--accent); }

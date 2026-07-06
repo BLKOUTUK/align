@@ -19,12 +19,12 @@ function AnswerChip({ who, value }) {
   if (!option) return null;
   return (
     <span className="inline-flex items-center gap-1.5">
-      <span className="text-xs uppercase tracking-wide text-[#1B1B3A]/40">
+      <span className="text-xs uppercase tracking-wide text-[#2B211C]/40">
         {who}
       </span>
       <span
-        className="px-2.5 py-0.5 rounded-full text-xs font-medium text-white"
-        style={{ backgroundColor: option.color }}
+        className="px-2.5 py-0.5 rounded-full text-xs font-medium"
+        style={{ backgroundColor: option.color, color: option.text }}
       >
         {option.label}
       </span>
@@ -57,7 +57,7 @@ export default function SecondReader() {
     return (
       <Layout title="Second Reader">
         <div className="max-w-3xl mx-auto px-4 py-16 text-center">
-          <p className="text-[#1B1B3A]/50">Loading...</p>
+          <p className="text-[#2B211C]/50">Loading...</p>
         </div>
       </Layout>
     );
@@ -97,13 +97,13 @@ export default function SecondReader() {
     <Layout title="Second Reader">
       <div className="max-w-3xl mx-auto px-4 py-8">
         <div className="mb-8">
-          <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-[#E8A838]/15 text-[#8a6420] mb-3">
+          <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-[#D89A2D]/20 text-[#2B211C] mb-3">
             Demonstration — not a public feature
           </span>
-          <h1 className="font-display text-3xl text-[#1B1B3A] mb-2">
+          <h1 className="font-display text-3xl text-[#2B211C] mb-2">
             AI second reader
           </h1>
-          <p className="text-[#1B1B3A]/60">
+          <p className="text-[#2B211C]/60">
             Paste the research request you just assessed. An AI reads it and
             answers the same ten questions, so you can see where its reading
             agrees with yours — and where it doesn&apos;t. The AI is a second
@@ -113,17 +113,17 @@ export default function SecondReader() {
         </div>
 
         {!hasFullAssessment && (
-          <div className="bg-white rounded-xl border border-[#1B1B3A]/10 p-6 shadow-sm mb-8">
-            <p className="text-[#1B1B3A] font-medium mb-2">
+          <div className="bg-white rounded-xl border border-[#2B211C]/10 p-6 shadow-sm mb-8">
+            <p className="text-[#2B211C] font-medium mb-2">
               Complete your own assessment first
             </p>
-            <p className="text-sm text-[#1B1B3A]/60 mb-4">
+            <p className="text-sm text-[#2B211C]/60 mb-4">
               The second reader shows an AI&apos;s answers alongside yours. It
               needs your reading of the proposal before it can compare.
             </p>
             <Link
               href="/assess"
-              className="inline-block px-5 py-2.5 rounded-xl font-medium bg-[#1B1B3A] text-white hover:bg-[#2a2a5a] transition-colors no-underline"
+              className="inline-block px-5 py-2.5 rounded-xl font-medium bg-[#2B211C] text-white hover:bg-[#3D2E26] transition-colors no-underline"
             >
               Start the assessment
             </Link>
@@ -132,10 +132,10 @@ export default function SecondReader() {
 
         {hasFullAssessment && status !== 'done' && (
           <form onSubmit={handleSubmit} className="mb-10">
-            <div className="bg-white rounded-xl border border-[#1B1B3A]/10 p-6 shadow-sm mb-4">
+            <div className="bg-white rounded-xl border border-[#2B211C]/10 p-6 shadow-sm mb-4">
               <label
                 htmlFor="proposal-text"
-                className="block text-[#1B1B3A] font-medium mb-2"
+                className="block text-[#2B211C] font-medium mb-2"
               >
                 The research request, as you received it
               </label>
@@ -145,15 +145,15 @@ export default function SecondReader() {
                 onChange={(e) => setText(e.target.value)}
                 rows={12}
                 placeholder="Paste the email, proposal, or partnership request here..."
-                className="w-full rounded-lg border border-[#1B1B3A]/20 p-3 text-sm text-[#1B1B3A] focus:outline-none focus:border-[#E8A838]"
+                className="w-full rounded-lg border border-[#2B211C]/20 p-3 text-sm text-[#2B211C] focus:outline-none focus:border-[#D89A2D]"
               />
-              <p className="text-xs text-[#1B1B3A]/40 mt-1">
+              <p className="text-xs text-[#2B211C]/40 mt-1">
                 At least a few paragraphs — the AI can only read what you give
                 it.
               </p>
             </div>
 
-            <div className="bg-white rounded-xl border border-[#1B1B3A]/10 p-6 shadow-sm mb-4">
+            <div className="bg-white rounded-xl border border-[#2B211C]/10 p-6 shadow-sm mb-4">
               <label className="flex items-start gap-3 cursor-pointer">
                 <input
                   type="checkbox"
@@ -161,7 +161,7 @@ export default function SecondReader() {
                   onChange={(e) => setConsent(e.target.checked)}
                   className="mt-1"
                 />
-                <span className="text-sm text-[#1B1B3A]/70">
+                <span className="text-sm text-[#2B211C]/70">
                   I understand that the text I paste will be sent to an AI
                   model to be scored against the same ten questions. It is
                   processed once and <strong>not stored</strong> — this site
@@ -173,7 +173,7 @@ export default function SecondReader() {
             </div>
 
             {error && (
-              <p className="text-sm text-[#EF4444] mb-4" role="alert">
+              <p className="text-sm text-[#C8341F] mb-4" role="alert">
                 {error}
               </p>
             )}
@@ -187,7 +187,7 @@ export default function SecondReader() {
             <button
               type="submit"
               disabled={!consent || text.trim().length < 200 || status === 'working'}
-              className="px-6 py-3 rounded-xl font-medium bg-[#1B1B3A] text-white hover:bg-[#2a2a5a] transition-colors cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed"
+              className="px-6 py-3 rounded-xl font-medium bg-[#2B211C] text-white hover:bg-[#3D2E26] transition-colors cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed"
             >
               {status === 'working'
                 ? 'Reading the proposal — about half a minute...'
@@ -199,10 +199,10 @@ export default function SecondReader() {
         {status === 'done' && aiResult && (
           <div className="mb-10">
             <div className="mb-6">
-              <h2 className="font-display text-2xl text-[#1B1B3A] mb-1">
+              <h2 className="font-display text-2xl text-[#2B211C] mb-1">
                 Two readings, side by side
               </h2>
-              <p className="text-sm text-[#1B1B3A]/60">
+              <p className="text-sm text-[#2B211C]/60">
                 Where the answers differ, that&apos;s a conversation — not a
                 correction.
               </p>
@@ -210,7 +210,7 @@ export default function SecondReader() {
 
             {dimensions.map((dim) => (
               <div key={dim.id} className="mb-6">
-                <h3 className="font-display text-lg text-[#1B1B3A] mb-3">
+                <h3 className="font-body font-bold text-lg text-[#2B211C] mb-3">
                   <span role="img" aria-hidden="true" className="mr-2">
                     {dim.icon}
                   </span>
@@ -226,16 +226,16 @@ export default function SecondReader() {
                         key={q.id}
                         className={`bg-white rounded-xl border p-5 shadow-sm ${
                           differs
-                            ? 'border-[#E8A838]'
-                            : 'border-[#1B1B3A]/10'
+                            ? 'border-[#D89A2D]'
+                            : 'border-[#2B211C]/10'
                         }`}
                       >
                         <div className="flex items-start justify-between gap-3 mb-2">
-                          <p className="text-sm font-medium text-[#1B1B3A]">
+                          <p className="text-sm font-medium text-[#2B211C]">
                             {q.text}
                           </p>
                           {differs && (
-                            <span className="shrink-0 px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#E8A838]/15 text-[#8a6420]">
+                            <span className="shrink-0 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-[#D89A2D]/20 text-[#2B211C]">
                               Differs
                             </span>
                           )}
@@ -245,7 +245,7 @@ export default function SecondReader() {
                           {ai && <AnswerChip who="AI" value={ai.value} />}
                         </div>
                         {ai && (
-                          <p className="text-sm text-[#1B1B3A]/60">
+                          <p className="text-sm text-[#2B211C]/60">
                             {ai.rationale}
                           </p>
                         )}
@@ -256,7 +256,7 @@ export default function SecondReader() {
               </div>
             ))}
 
-            <p className="text-xs text-[#1B1B3A]/40 mt-6">
+            <p className="text-xs text-[#2B211C]/40 mt-6">
               Second reading by {aiResult.model} via OpenRouter. The pasted
               text was processed once and not stored.
             </p>
@@ -270,13 +270,13 @@ export default function SecondReader() {
                   setText('');
                   setConsent(false);
                 }}
-                className="px-6 py-3 rounded-xl font-medium border-2 border-[#1B1B3A]/20 text-[#1B1B3A] hover:border-[#1B1B3A]/40 transition-colors cursor-pointer"
+                className="px-6 py-3 rounded-xl font-medium border-2 border-[#2B211C]/20 text-[#2B211C] hover:border-[#2B211C]/40 transition-colors cursor-pointer"
               >
                 Read another
               </button>
               <Link
                 href="/results"
-                className="px-6 py-3 rounded-xl font-medium text-center bg-[#1B1B3A] text-white hover:bg-[#2a2a5a] transition-colors no-underline"
+                className="px-6 py-3 rounded-xl font-medium text-center bg-[#2B211C] text-white hover:bg-[#3D2E26] transition-colors no-underline"
               >
                 Back to your results
               </Link>

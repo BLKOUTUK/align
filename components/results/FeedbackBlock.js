@@ -24,9 +24,9 @@ export default function FeedbackBlock({ feedbackText }) {
   }
 
   return (
-    <div className="bg-white rounded-xl border border-[#1B1B3A]/10 shadow-sm overflow-hidden">
-      <div className="flex items-center justify-between px-5 py-3 border-b border-[#1B1B3A]/10 bg-[#1B1B3A]/[0.03]">
-        <h3 className="font-display text-lg text-[#1B1B3A]">
+    <div className="bg-white rounded-xl border border-[#2B211C]/10 shadow-sm overflow-hidden">
+      <div className="flex items-center justify-between px-5 py-3 border-b border-[#2B211C]/10 bg-[#2B211C]/[0.03]">
+        <h3 className="font-body font-bold text-lg text-[#2B211C]">
           Your Feedback Letter
         </h3>
         <button
@@ -35,8 +35,8 @@ export default function FeedbackBlock({ feedbackText }) {
             px-4 py-2 rounded-lg text-sm font-medium transition-all cursor-pointer print:hidden
             ${
               copied
-                ? 'bg-green-500 text-white'
-                : 'bg-[#E8A838] text-white hover:bg-[#d49730]'
+                ? 'bg-[#3F6B4A] text-white'
+                : 'bg-[#D89A2D] text-[#2B211C] hover:bg-[#c2872a]'
             }
           `}
         >
@@ -44,7 +44,7 @@ export default function FeedbackBlock({ feedbackText }) {
         </button>
       </div>
       <div className="p-5">
-        <pre className="whitespace-pre-wrap font-body text-sm text-[#1B1B3A]/80 leading-relaxed">
+        <pre className="whitespace-pre-wrap font-body text-sm text-[#2B211C]/80 leading-relaxed">
           {feedbackText}
         </pre>
       </div>

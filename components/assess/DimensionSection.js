@@ -7,11 +7,11 @@ export default function DimensionSection({ dimension, answers, onAnswer }) {
         <span className="text-2xl" role="img" aria-hidden="true">
           {dimension.icon}
         </span>
-        <h2 className="font-display text-xl text-[#1B1B3A]">
+        <h2 className="font-display text-xl text-[#2B211C]">
           {dimension.title}
         </h2>
       </div>
-      <p className="text-sm text-[#1B1B3A]/60 mb-4 ml-10">
+      <p className="text-sm text-[#2B211C]/60 mb-4 ml-10">
         {dimension.description}
       </p>
 

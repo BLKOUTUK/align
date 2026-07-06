@@ -2,12 +2,12 @@ import { answerOptions } from '../../lib/questions';
 
 export default function QuestionCard({ question, value, onChange }) {
   return (
-    <div className="bg-white rounded-xl border border-[#1B1B3A]/10 p-5 shadow-sm">
-      <p className="font-body text-[#1B1B3A] font-medium mb-1">
+    <div className="bg-white rounded-xl border border-[#2B211C]/10 p-5 shadow-sm">
+      <p className="font-body text-[#2B211C] font-medium mb-1">
         {question.text}
       </p>
       {question.hint && (
-        <p className="text-sm text-[#1B1B3A]/50 mb-4">{question.hint}</p>
+        <p className="text-sm text-[#2B211C]/50 mb-4">{question.hint}</p>
       )}
 
       <div className="flex gap-3">
@@ -23,13 +23,13 @@ export default function QuestionCard({ question, value, onChange }) {
                 border-2 cursor-pointer
                 ${
                   isSelected
-                    ? 'text-white shadow-md scale-[1.02]'
-                    : 'bg-white text-[#1B1B3A]/70 border-[#1B1B3A]/10 hover:border-[#1B1B3A]/30'
+                    ? 'shadow-md scale-[1.02]'
+                    : 'bg-white text-[#2B211C]/70 border-[#2B211C]/10 hover:border-[#2B211C]/30'
                 }
               `}
               style={
                 isSelected
-                  ? { backgroundColor: option.color, borderColor: option.color }
+                  ? { backgroundColor: option.color, borderColor: option.color, color: option.text }
                   : undefined
               }
               aria-pressed={isSelected}

@@ -15,14 +15,19 @@ const overallMessages = {
 
 export default function OverallScore({ overall }) {
   const msg = overallMessages[overall.rating];
+  const fg = overall.rating === 'amber' ? '#2B211C' : '#FFFFFF';
+  const chipBg = overall.rating === 'amber' ? 'rgba(43,33,28,0.12)' : 'rgba(255,255,255,0.2)';
 
   return (
     <div
-      className="rounded-2xl p-8 text-white shadow-lg"
-      style={{ backgroundColor: overall.color }}
+      className="rounded-2xl p-8 shadow-lg"
+      style={{ backgroundColor: overall.color, color: fg }}
     >
       <div className="flex items-center gap-3 mb-3">
-        <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center">
+        <div
+          className="w-12 h-12 rounded-full flex items-center justify-center"
+          style={{ backgroundColor: chipBg }}
+        >
           <span className="text-2xl">
             {overall.rating === 'green'
               ? '✓'
@@ -33,7 +38,7 @@ export default function OverallScore({ overall }) {
         </div>
         <h2 className="font-display text-2xl">{msg.heading}</h2>
       </div>
-      <p className="text-white/90 leading-relaxed">{msg.body}</p>
+      <p className="leading-relaxed" style={{ opacity: 0.9 }}>{msg.body}</p>
     </div>
   );
 }

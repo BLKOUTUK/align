@@ -41,10 +41,10 @@ export default function Assess() {
 
       <div className="max-w-3xl mx-auto px-4 py-8">
         <div className="mb-8">
-          <h1 className="font-display text-3xl text-[#1B1B3A] mb-2">
+          <h1 className="font-display text-3xl text-[#2B211C] mb-2">
             Assess the proposal
           </h1>
-          <p className="text-[#1B1B3A]/60">
+          <p className="text-[#2B211C]/60">
             For each question, select the option that best describes the
             research partnership request you&apos;re evaluating.
           </p>
@@ -60,9 +60,9 @@ export default function Assess() {
             />
           ))}
 
-          <div className="sticky bottom-0 bg-[#FBF8F3]/95 backdrop-blur-sm border-t border-[#1B1B3A]/10 py-4 -mx-4 px-4 mt-8">
+          <div className="sticky bottom-0 bg-[#F6F2EA]/95 backdrop-blur-sm border-t border-[#2B211C]/10 py-4 -mx-4 px-4 mt-8">
             <div className="max-w-3xl mx-auto flex items-center justify-between">
-              <p className="text-sm text-[#1B1B3A]/50">
+              <p className="text-sm text-[#2B211C]/50">
                 {allAnswered
                   ? 'All questions answered — ready to see results'
                   : `${totalQuestions - answeredCount} question${
@@ -76,8 +76,8 @@ export default function Assess() {
                   px-6 py-3 rounded-xl font-medium transition-all
                   ${
                     allAnswered
-                      ? 'bg-[#1B1B3A] text-white hover:bg-[#2a2a5a] shadow-lg shadow-[#1B1B3A]/20 cursor-pointer'
-                      : 'bg-[#1B1B3A]/20 text-[#1B1B3A]/40 cursor-not-allowed'
+                      ? 'bg-[#2B211C] text-white hover:bg-[#3D2E26] shadow-lg shadow-[#2B211C]/20 cursor-pointer'
+                      : 'bg-[#2B211C]/20 text-[#2B211C]/40 cursor-not-allowed'
                   }
                 `}
               >
