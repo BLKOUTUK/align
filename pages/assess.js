@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Layout from '../components/layout/Layout';
 import DimensionSection from '../components/assess/DimensionSection';
@@ -8,6 +8,18 @@ import { dimensions, totalQuestions } from '../lib/questions';
 export default function Assess() {
   const router = useRouter();
   const [answers, setAnswers] = useState({});
+
+  // Restore a previous session's answers so users can edit without starting over
+  useEffect(() => {
+    const stored = sessionStorage.getItem('assessAlignAnswers');
+    if (stored) {
+      try {
+        setAnswers(JSON.parse(stored));
+      } catch {
+        // ignore corrupt state
+      }
+    }
+  }, []);
 
   const answeredCount = Object.keys(answers).length;
   const allAnswered = answeredCount === totalQuestions;

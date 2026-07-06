@@ -22,6 +22,7 @@ export default function Home() {
           </p>
           <Link
             href="/assess"
+            onClick={() => sessionStorage.removeItem('assessAlignAnswers')}
             className="inline-flex items-center gap-2 px-8 py-4 bg-[#1B1B3A] text-white rounded-xl font-medium text-lg hover:bg-[#2a2a5a] transition-colors shadow-lg shadow-[#1B1B3A]/20 no-underline"
           >
             Start Assessment
@@ -29,6 +30,9 @@ export default function Home() {
               <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
             </svg>
           </Link>
+          <p className="text-sm text-[#1B1B3A]/50 mt-4">
+            Takes about five minutes. Nothing you enter leaves your browser.
+          </p>
         </div>
       </section>
 

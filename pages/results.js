@@ -23,7 +23,7 @@ export default function Results() {
     const answers = JSON.parse(stored);
     const result = scoreAll(answers);
     setScores(result);
-    setFeedbackText(generateFeedback(result));
+    setFeedbackText(generateFeedback(result, answers));
   }, [router]);
 
   if (!scores) {
@@ -67,13 +67,20 @@ export default function Results() {
         </div>
 
         {/* Actions */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center print:hidden">
           <Link
             href="/assess"
             className="px-6 py-3 rounded-xl font-medium text-center border-2 border-[#1B1B3A]/20 text-[#1B1B3A] hover:border-[#1B1B3A]/40 transition-colors no-underline"
           >
-            Assess Another
+            Edit Answers
           </Link>
+          <button
+            type="button"
+            onClick={() => window.print()}
+            className="px-6 py-3 rounded-xl font-medium text-center bg-[#1B1B3A] text-white hover:bg-[#2a2a5a] transition-colors cursor-pointer"
+          >
+            Print / Save PDF
+          </button>
           <Link
             href="/"
             className="px-6 py-3 rounded-xl font-medium text-center text-[#1B1B3A]/50 hover:text-[#1B1B3A] transition-colors no-underline"

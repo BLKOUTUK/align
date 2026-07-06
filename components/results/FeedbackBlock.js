@@ -32,7 +32,7 @@ export default function FeedbackBlock({ feedbackText }) {
         <button
           onClick={handleCopy}
           className={`
-            px-4 py-2 rounded-lg text-sm font-medium transition-all cursor-pointer
+            px-4 py-2 rounded-lg text-sm font-medium transition-all cursor-pointer print:hidden
             ${
               copied
                 ? 'bg-green-500 text-white'
