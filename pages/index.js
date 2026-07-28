@@ -46,8 +46,8 @@ export default function Home() {
             {[
               {
                 step: '1',
-                title: 'Answer 10 questions',
-                desc: 'Structured questions across five dimensions of equitable research: community voice, power, cultural sensitivity, benefit, and accountability.',
+                title: 'Answer 13 questions',
+                desc: 'Structured questions across six dimensions of equitable research: community voice, power, cultural sensitivity, benefit, accountability, and safeguarding.',
               },
               {
                 step: '2',

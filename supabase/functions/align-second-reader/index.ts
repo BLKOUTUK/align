@@ -1,5 +1,5 @@
 // Assess & Align — AI second reader.
-// Takes a pasted research request and answers the same ten questions a human
+// Takes a pasted research request and answers the same thirteen questions a human
 // answers in the tool, so the two readings can sit side by side.
 //
 // Ephemeral by design: no database client, no storage, no logging of the
@@ -19,6 +19,9 @@ const QUESTIONS = [
   { id: 'ba-2', text: 'Does the research address a priority identified by the community itself?' },
   { id: 'tr-1', text: 'Have the researchers worked with Black communities before? What happened?' },
   { id: 'tr-2', text: 'Is there a feedback mechanism if the partnership isn’t working?' },
+  { id: 'sg-1', text: 'How does the research actively safeguard the lived-experience community it recruits from?' },
+  { id: 'sg-2', text: 'Is there a trauma-informed safeguarding framework in place specifically for this study?' },
+  { id: 'sg-3', text: 'Does the funding cover accessible, culturally safe support — such as non-Eurocentric therapists — if participants experience distress?' },
 ];
 
 const VALUES = ['green', 'amber', 'red', 'notstated'];
@@ -38,7 +41,7 @@ function corsHeaders(origin: string): Record<string, string> {
   };
 }
 
-const SYSTEM_PROMPT = `You are a second reader for Assess & Align, a tool that helps Black voluntary sector leaders in the UK evaluate research partnership requests for equity. You will be given the text of a research request or proposal. Answer each of the ten questions below about it.
+const SYSTEM_PROMPT = `You are a second reader for Assess & Align, a tool that helps Black voluntary sector leaders in the UK evaluate research partnership requests for equity. You will be given the text of a research request or proposal. Answer each of the thirteen questions below about it.
 
 For each question give:
 - "value": one of "green" (yes, clearly evidenced in the text), "amber" (partly, or with significant caveats), "red" (no, or the text indicates the opposite), "notstated" (the text is silent on this).
@@ -49,7 +52,7 @@ Be rigorous: warm words without mechanisms score "amber" at best. If the text do
 Questions:
 ${QUESTIONS.map((q) => `- ${q.id}: ${q.text}`).join('\n')}
 
-Respond with ONLY a JSON array of ten objects, one per question in the order given, each shaped {"id": "...", "value": "...", "rationale": "..."}. No other text.`;
+Respond with ONLY a JSON array of thirteen objects, one per question in the order given, each shaped {"id": "...", "value": "...", "rationale": "..."}. No other text.`;
 
 Deno.serve(async (req) => {
   const headers = {

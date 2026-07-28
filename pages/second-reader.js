@@ -5,7 +5,7 @@ import { dimensions, answerOptions, totalQuestions } from '../lib/questions';
 
 // Unlisted page: nothing links here. Built for the Alliance AI-alignment
 // discussion — an AI reads the same research request and answers the same
-// ten questions, so the two readings can be compared.
+// thirteen questions, so the two readings can be compared.
 
 const FUNCTION_URL =
   'https://bgjengudzfickgomjqmz.supabase.co/functions/v1/align-second-reader';
@@ -105,7 +105,7 @@ export default function SecondReader() {
           </h1>
           <p className="text-[#2B211C]/60">
             Paste the research request you just assessed. An AI reads it and
-            answers the same ten questions, so you can see where its reading
+            answers the same thirteen questions, so you can see where its reading
             agrees with yours — and where it doesn&apos;t. The AI is a second
             reader, not the judge: where you differ, your knowledge of your
             community wins.
@@ -163,7 +163,7 @@ export default function SecondReader() {
                 />
                 <span className="text-sm text-[#2B211C]/70">
                   I understand that the text I paste will be sent to an AI
-                  model to be scored against the same ten questions. It is
+                  model to be scored against the same thirteen questions. It is
                   processed once and <strong>not stored</strong> — this site
                   keeps no copy and writes nothing to any database. My own
                   answers stay in my browser as before. Nothing is sent until
