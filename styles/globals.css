@@ -41,10 +41,12 @@ body {
 a { color: inherit; text-decoration: none; }
 * { box-sizing: border-box; }
 
-/* Display / body font helpers */
+/* Display / body font helpers. ALL-CAPS site-wide — the casing register was
+   retired 11 Aug 2026 (see manifesto docs/round-2/03_design-system.md). */
 .font-display {
   font-family: 'bc_empire_windrushregular', 'Arial Black', Impact, sans-serif;
   letter-spacing: 0.01em;
+  text-transform: uppercase;
 }
 .font-body { font-family: 'Work Sans', system-ui, sans-serif; }
 .font-data { font-family: 'Space Grotesk', 'SF Mono', monospace; }
@@ -58,11 +60,18 @@ a { color: inherit; text-decoration: none; }
   color: var(--urgent);
 }
 
-/* Signature dark hero band — mirrors the manifesto's .page-hero.
-   Ochre accents are safe here because the surface is dark. */
+/* Movement-register hero band — mirrors the manifesto's Learning/evidence
+   heroes: ochre leads, brown-black accents (campaign pages keep dark bands).
+   Brown-black on ochre is 6.4:1 (AA). Never white or demand-red on ochre. */
 .aa-hero {
-  background: var(--primary);
-  color: #FFFFFF;
+  background: var(--accent);
+  color: var(--primary);
 }
-.aa-hero .aa-eyebrow { color: var(--accent); }
-.aa-hero-accent { color: var(--accent); }
+.aa-hero .aa-eyebrow { color: var(--primary); }
+/* Reversed-out flash: the swap in miniature — brown block, ochre type. */
+.aa-hero-accent {
+  background: var(--primary);
+  color: var(--accent);
+  padding: 0 0.18em;
+  display: inline-block;
+}
